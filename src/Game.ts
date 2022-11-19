@@ -2,7 +2,7 @@ import {GameState, IgtGame} from "incremental-game-template";
 import {Features} from "@/Features";
 
 export class Game extends IgtGame {
-    protected readonly SAVE_KEY: string = 'tree-idle';
+    protected readonly SAVE_KEY: string = 'annoying-incremental';
     protected readonly TICK_DURATION: number = 0.05;
     features: Features;
 
