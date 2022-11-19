@@ -1,5 +1,5 @@
-# Tree Idle
-> For when you want to be a tree
+# Annoying Incremental
+> For when you want to be annoyed
 
 Uses the [Incremental Game Template](https://github.com/123ishaTest/incremental-game-template)
 
