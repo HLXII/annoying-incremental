@@ -27,8 +27,8 @@ export class App {
                 controller: new GameController(),
                 resources: new Resources(),
                 upgrades: new Upgrades(),
-                buttonHandler: new ButtonHandler(),
                 gameSettings: new GameSettings(),
+                buttonHandler: new ButtonHandler(),
                 statistics: new Statistics(),
             }
         );

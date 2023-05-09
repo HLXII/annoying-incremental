@@ -33,13 +33,17 @@ export class Upgrades extends IgtFeature {
             "button2": new Upgrade("button2", "Button Upgrade B", "Are you tired of clicking?", "Now you can hold down the mouse button!", new UpgradeRequirement("button1"), { "Points": 5e-322}),
             "button3": new Upgrade("button3", "Button Upgrade III", "That button is looking lonely...", "Here's a friend!", new UpgradeRequirement("button2"), { "Points": 1e-321}),
             "points2": new Upgrade("points2", "Ok this will help you get more points", "Getting closer to exponential growth", "Two steps forward, one step back", new UpgradeRequirement('button2'), { "Annoyance": 200 }),
-            "button4": new Upgrade("button4", "Button Upgrade four", "Do you have any phobias?", "Well, buttons have musophobia", new UpgradeRequirement("button3"), { "Points": 1e-320}),
+            "button4": new Upgrade("button4", "Button Upgrade four", "Do you have any phobias?", "Well, buttons have musophobia", new UpgradeRequirement("button3"), { "Points": 2e-321}),
 
             // hover only
             // three buttons
             // buttons scared
-            // buttons 
+            // buttons DVD movement
+            // button decay/respawn
             // ui upgrade - vague descriptions
+            // ticker
+            // IAP
+            // loot boxes
         }
     }
 

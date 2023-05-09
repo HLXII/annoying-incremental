@@ -24,5 +24,16 @@ export class NumberGameSetting extends GameSetting {
         return this.defaultMinValue;
     }
 
-    value: number;
+    protected _value: number = 0;
+    public get value(): number {
+        return this._value;
+    }
+    public set value(newValue: number) {
+        if (this._value != newValue) {
+            this._value = newValue;
+            this._subscriptionCallbacks.forEach((subscriber) => {
+                subscriber(this.name, this._value);
+            });
+        } 
+    }
 }

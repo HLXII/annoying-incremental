@@ -2,7 +2,7 @@
     <div class="toggle-game-setting">
         {{gameSetting.name}} - {{gameSetting.description}}
         <label class="switch">
-            <input type="checkbox" :v-model="gameSetting.value" @change="change">
+            <input type="checkbox" :checked="gameSetting.value" @change="change">
             <span class="slider round"></span>
         </label>
     </div>

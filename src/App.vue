@@ -1,5 +1,15 @@
 <template>
     <div class="view">
+        <div class="dynamic-buttons" :class="{ invisible: showStaticButtons }" style="position: absolute;">
+            <div style="position: absolute; pointer-events:none;"  v-for="(dynamicButton, i) in dynamicButtons" :key="i">
+                <button class="game-button dynamic-button" style="position: relative; pointer-events: all" :style="{ 'left': dynamicButton.x + 'px', 'top': (dynamicButton.y-4) + 'px' }"
+                :class="buttonClass" 
+                @click="onClick"
+                @mousedown="mouseDown" @mouseup="mouseUp" @mouseenter="mouseEnter" @mouseleave="mouseLeave">
+                    Click Me!
+                </button>
+            </div>
+        </div>
         <div class="d-flex justify-content-end m-1">
             <button @click="hardReset">Hard Reset</button>
         </div>
@@ -7,8 +17,8 @@
             <resources :resources="game.features.resources" />
             <div class="d-flex align-items-start justify-content-center" style="flex-grow:1">
                 <div class="d-flex flex-column align-items-center">
-                    <div class="static-buttons">
-                        <button v-for="i in numButtons" :key="i" class="m-1"
+                    <div class="static-buttons" :class="{ invisible: !showStaticButtons }">
+                        <button v-for="i in numButtons" :key="i" class="game-button static-button m-1"
                         :class="buttonClass" 
                         @click="onClick"
                         @mousedown="mouseDown" @mouseup="mouseUp" @mouseenter="mouseEnter" @mouseleave="mouseLeave">
@@ -28,6 +38,7 @@ import {App} from "@/App.ts"
 import Resources from './controls/resources.vue'
 import Upgrades from './controls/upgrades.vue'
 import GameSettings from './controls/game-settings.vue'
+import { ButtonDisplayState } from './scripts/button/ButtonHandler'
 
 export default {
     components: {
@@ -46,6 +57,12 @@ export default {
         },
         numButtons() {
             return this.game.features.gameSettings.getNumberSettingValue('Button Count');
+        },
+        showStaticButtons() {
+            return this.game.features.buttonHandler.buttonDisplayState == ButtonDisplayState.Static;
+        },
+        dynamicButtons() {
+            return this.game.features.buttonHandler.dynamicButtons;
         }
     },
     methods: {
@@ -81,6 +98,15 @@ export default {
 
 .view {
     height: 100%
+}
+
+.game-button {
+    width: 100px;
+    height: 30px;
+}
+
+.invisible {
+    visibility: hidden;
 }
 
 .rainbow {
